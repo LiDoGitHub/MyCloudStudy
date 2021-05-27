@@ -10,7 +10,7 @@ import website.lidong.spring.entities.Payment;
 import javax.annotation.Resource;
 
 /**
- * @auther zzyy
+ * @auther LiDong
  * @create 2020-02-18 10:43
  */
 @RestController
@@ -47,6 +47,13 @@ public class PaymentController {
 
 	@GetMapping("/payment/lb")
 	public String getPaymentLb() {
+		return serverPort;
+	}
+
+	@GetMapping("/payment/feign/timeout")
+	public String paymentFeignTimeout() {
+		// 业务逻辑处理正确，但是需要耗费3秒钟
+//		try { TimeUnit.SECONDS.sleep(3); } catch (InterruptedException e) { e.printStackTrace(); }
 		return serverPort;
 	}
 }
